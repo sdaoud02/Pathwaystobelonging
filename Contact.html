@@ -30,41 +30,48 @@
             <section class="registration">
                 <h2>📝 Register Your Child</h2>
                 <p>Complete the form below to register your child for our summer program. Spaces are limited!</p>
-                <div id="success-message" class="success-message hidden">
+            
+                <div data-netlify-success="true" class="success-message hidden">
                     <p>✅ Thank you for registering! We've received your submission and will contact you soon.</p>
                     <p>You'll also receive a confirmation email at the address you provided.</p>
                     <a href="contact.html" class="button">Register Another Child</a>
                 </div>
-                <form id="registration-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+
+
+                <form 
+                    id="registration-form"
+                    name="registration" 
+                    method="POST" 
+                    data-netlify="true"
+                    netlify-honeypot="bot-field"
+                    action="/thank-you.html"
+                >
+                    <!-- Honeypot field -->
                     <p class="hidden">
                         <label>Don't fill this out if you're human: <input name="bot-field"></label>
                     </p>
 
                     <h3>Parent/Guardian Information</h3>
-                    <p>
-                        <label>Name: <input type="text" name="name" required></label>
-                    </p>
-                    <p>
-                        <label>Email: <input type="email" name="email" required></label>
-                    </p>
-                    <p>
-                        <label>Phone: <input type="tel" name="phone" required></label>
-                    </p>
+                    <label for="parent-name">Name:</label>
+                    <input type="text" id="parent-name" name="parent-name" required>
+
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
 
                     <h3>Child Information</h3>
-                    <p>
-                        <label>Child's Name: <input type="text" name="child-name" required></label>
-                    </p>
-                    <p>
-                        <label>Age: <input type="number" name="child-age" min="7" max="18" required></label>
-                    </p>
-                    <p>
-                        <label>Number of Children: <input type="number" name="num-children" min="1" max="5"></label>
-                    </p>
+                    <label for="child-name">Child's Name:</label>
+                    <input type="text" id="child-name" name="child-name" required>
 
-                    <p>
-                        <button type="submit" class="button">Submit Registration</button>
-                    </p>
+                    <label for="child-age">Age:</label>
+                    <input type="number" id="child-age" name="child-age" min="7" max="18" required>
+
+                    <label for="num-children">Number of Children Registering:</label>
+                    <input type="number" id="num-children" name="num-children" min="1" max="5">
+
+                    <input type="submit" value="Submit Registration" class="button">
                 </form>
             </section>
 
@@ -88,17 +95,28 @@
     </footer>
 
     <script>
-        if (window.location.search.includes('success=true')) {
-            document.getElementById('registration-form').style.display = 'none';
-            document.getElementById('success-message').classList.remove('hidden');
-            document.getElementById('success-message').scrollIntoView({ behavior: 'smooth' });
-        }
-        document.getElementById('registration-form').addEventListener('submit', function(e) {
+
+        document.getElementById('registration-form').addEventListener('submit', async function(e) {
+
             if (!window.location.hostname.includes('netlify.app')) {
                 e.preventDefault();
-                document.getElementById('registration-form').style.display = 'none';
-                document.getElementById('success-message').classList.remove('hidden');
-                document.getElementById('success-message').scrollIntoView({ behavior: 'smooth' });
+                
+                try {
+                    const formData = new FormData(this);
+                    const response = await fetch('/', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams(formData).toString()
+                    });
+
+                    if (response.ok) {
+                        this.style.display = 'none';
+                        document.querySelector('.success-message').classList.remove('hidden');
+                        document.querySelector('.success-message').scrollIntoView({ behavior: 'smooth' });
+                    }
+                } catch (error) {
+                    alert('Error submitting form. Please try again.');
+                }
             }
         });
     </script>
