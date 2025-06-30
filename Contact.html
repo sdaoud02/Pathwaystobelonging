@@ -30,57 +30,75 @@
             <section class="registration">
                 <h2>📝 Register Your Child</h2>
                 <p>Complete the form below to register your child for our summer program. Spaces are limited!</p>
-                <div data-netlify-success="true" class="success-message hidden">
-                  <p>✅ Thank you for registering! We've received your submission and will contact you soon.</p>
-                  <p>You'll also receive a confirmation email at the address you provided.</p>
-              </div>
+                <div id="success-message" class="success-message hidden">
+                    <p>✅ Thank you for registering! We've received your submission and will contact you soon.</p>
+                    <p>You'll also receive a confirmation email at the address you provided.</p>
+                    <a href="contact.html" class="button">Register Another Child</a>
+                </div>
+                <form id="registration-form" name="registration" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                    <p class="hidden">
+                        <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                    </p>
 
-              <form name="registration" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                  <p class="hidden">
-                      <label>Don't fill this out if you're human: <input name="bot-field"></label>
-                  </p>
+                    <h3>Parent/Guardian Information</h3>
+                    <label for="parent-name">Name:</label>
+                    <input type="text" id="parent-name" name="parent-name" required>
 
-                  <h3>Parent/Guardian Information</h3>
-                  <label for="parent-name">Name:</label>
-                  <input type="text" id="parent-name" name="parent-name" required>
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" required>
 
-                  <label for="phone">Phone:</label>
-                  <input type="tel" id="phone" name="phone" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
 
-                  <label for="email">Email:</label>
-                  <input type="email" id="email" name="email" required>
+                    <h3>Child Information</h3>
+                    <label for="child-name">Child's Name:</label>
+                    <input type="text" id="child-name" name="child-name" required>
 
-                  <h3>Child Information</h3>
-                  <label for="child-name">Child's Name:</label>
-                  <input type="text" id="child-name" name="child-name" required>
+                    <label for="child-age">Age:</label>
+                    <input type="number" id="child-age" name="child-age" min="7" max="18" required>
 
-                  <label for="child-age">Age:</label>
-                  <input type="number" id="child-age" name="child-age" min="7" max="18" required>
+                    <label for="num-children">Number of Children Registering:</label>
+                    <input type="number" id="num-children" name="num-children" min="1" max="5">
 
-                  <label for="num-children">Number of Children Registering:</label>
-                  <input type="number" id="num-children" name="num-children" min="1" max="5">
+                    <input type="submit" value="Submit Registration" class="button">
+                </form>
+            </section>
 
-                  <input type="submit" value="Submit Registration" class="button">
-              </form>
-          </section>
+            <section class="contact-info">
+                <h2>Contact Information</h2>
+                <p>Have questions about our program or registration? Get in touch!</p>
+                
+                <div class="contact-methods">
+                    <p><strong>📧 Email:</strong> <a href="mailto:Sarahdaoud801@gmail.com">Sarahdaoud801@gmail.com</a></p>
+                    <p><strong>📞 Phone:</strong> (825)-365-6858</p>
+                    <p><strong>📍 Location:</strong> Calgary, Alberta</p>
+                </div>
+            </section>
+        </div>
+    </div>
 
-          <section class="contact-info">
-              <h2>Contact Information</h2>
-              <p>Have questions about our program or registration? Get in touch!</p>
-              
-              <div class="contact-methods">
-                  <p><strong>📧 Email:</strong> <a href="mailto:Sarahdaoud801@gmail.com">Sarahdaoud801@gmail.com</a></p>
-                  <p><strong>📞 Phone:</strong> (825)-365-6858</p>
-                  <p><strong>📍 Location:</strong> Calgary, Alberta</p>
-              </div>
-          </section>
-      </div>
-  </div>
+    <footer>
+        <div class="footer">
+            <p>&copy; 2025 Pathways to Belonging. All rights reserved.</p>
+        </div>
+    </footer>
 
-  <footer>
-      <div class="footer">
-          <p>&copy; 2025 Pathways to Belonging. All rights reserved.</p>
-      </div>
-  </footer>
+    <script>
+        document.getElementById('registration-form').addEventListener('submit', function(e) {
+            if (window.location.hostname.includes('netlify.app')) {
+                return true;
+            }
+            e.preventDefault();
+            document.getElementById('success-message').classList.remove('hidden');
+            document.getElementById('success-message').scrollIntoView({ behavior: 'smooth' });
+            
+            return false;
+        });
+        if (window.location.search.includes('success=true')) {
+            document.getElementById('registration-form').classList.add('hidden');
+            document.getElementById('success-message').classList.remove('hidden');
+            document.getElementById('success-message').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
