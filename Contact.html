@@ -37,41 +37,65 @@
                     <a href="contact.html" class="button">Register Another Child</a>
                 </div>
 
-
                 <form 
                     id="registration-form"
                     name="registration" 
                     method="POST" 
-                    data-netlify="true"
+                    netlify
                     netlify-honeypot="bot-field"
-                    action="/thank-you.html"
-                >
-                    <!-- Honeypot field -->
+                    action="/thank-you.html">
                     <p class="hidden">
                         <label>Don't fill this out if you're human: <input name="bot-field"></label>
                     </p>
 
-                    <h3>Parent/Guardian Information</h3>
-                    <label for="parent-name">Name:</label>
-                    <input type="text" id="parent-name" name="parent-name" required>
+                    <fieldset>
+                        <legend>Parent/Guardian Information</legend>
+                        
+                        <div class="form-group">
+                            <label for="parent-name">Full Name:</label>
+                            <input type="text" id="parent-name" name="parent-name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number:</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </fieldset>
 
-                    <label for="phone">Phone:</label>
-                    <input type="tel" id="phone" name="phone" required>
+                    <fieldset>
+                        <legend>Child Information</legend>
+                        
+                        <div class="form-group">
+                            <label for="child-name">Child's Full Name:</label>
+                            <input type="text" id="child-name" name="child-name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="child-age">Child's Age:</label>
+                            <input type="number" id="child-age" name="child-age" min="7" max="18" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="num-children">Number of Children Registering:</label>
+                            <input type="number" id="num-children" name="num-children" min="1" max="5" value="1">
+                        </div>
+                    </fieldset>
 
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <div class="form-group">
+                        <label for="additional-info">Additional Information (Allergies, Special Needs, etc.):</label>
+                        <textarea id="additional-info" name="additional-info" rows="4"></textarea>
+                    </div>
 
-                    <h3>Child Information</h3>
-                    <label for="child-name">Child's Name:</label>
-                    <input type="text" id="child-name" name="child-name" required>
 
-                    <label for="child-age">Age:</label>
-                    <input type="number" id="child-age" name="child-age" min="7" max="18" required>
-
-                    <label for="num-children">Number of Children Registering:</label>
-                    <input type="number" id="num-children" name="num-children" min="1" max="5">
-
-                    <input type="submit" value="Submit Registration" class="button">
+                    <div class="form-actions">
+                        <input type="submit" value="Submit Registration" class="button">
+                        <input type="reset" value="Clear Form" class="button secondary">
+                    </div>
                 </form>
             </section>
 
@@ -80,10 +104,27 @@
                 <p>Have questions about our program or registration? Get in touch!</p>
                 
                 <div class="contact-methods">
-                    <p><strong>📧 Email:</strong> <a href="mailto:Sarahdaoud801@gmail.com">Sarahdaoud801@gmail.com</a></p>
-                    <p><strong>📞 Phone:</strong> (825)-365-6858</p>
-                    <p><strong>📍 Location:</strong> Calgary, Alberta</p>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <a href="mailto:Sarahdaoud801@gmail.com">Sarahdaoud801@gmail.com</a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <a href="tel:8253656858">(825)-365-6858</a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <address>Calgary, Alberta</address>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">🕒</span>
+                        <p>Monday-Friday: 9:00 AM - 5:00 PM</p>
+                    </div>
                 </div>
+                
             </section>
         </div>
     </div>
@@ -93,32 +134,5 @@
             <p>&copy; 2025 Pathways to Belonging. All rights reserved.</p>
         </div>
     </footer>
-
-    <script>
-
-        document.getElementById('registration-form').addEventListener('submit', async function(e) {
-
-            if (!window.location.hostname.includes('netlify.app')) {
-                e.preventDefault();
-                
-                try {
-                    const formData = new FormData(this);
-                    const response = await fetch('/', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                        body: new URLSearchParams(formData).toString()
-                    });
-
-                    if (response.ok) {
-                        this.style.display = 'none';
-                        document.querySelector('.success-message').classList.remove('hidden');
-                        document.querySelector('.success-message').scrollIntoView({ behavior: 'smooth' });
-                    }
-                } catch (error) {
-                    alert('Error submitting form. Please try again.');
-                }
-            }
-        });
-    </script>
 </body>
 </html>
