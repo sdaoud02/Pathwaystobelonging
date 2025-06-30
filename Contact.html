@@ -31,19 +31,20 @@
                 <h2>📝 Register Your Child</h2>
                 <p>Complete the form below to register your child for our summer program. Spaces are limited!</p>
             
-                <div data-netlify-success="true" class="success-message hidden">
+                 <div data-netlify-success="true" class="success-message hidden">
                     <p>✅ Thank you for registering! We've received your submission and will contact you soon.</p>
                     <p>You'll also receive a confirmation email at the address you provided.</p>
                     <a href="contact.html" class="button">Register Another Child</a>
                 </div>
 
-                <form 
+                 <form 
                     id="registration-form"
                     name="registration" 
                     method="POST" 
                     netlify
-                    netlify-honeypot="bot-field"
-                    action="Thank-you.html">
+                    netlify-honeypot="bot-field">
+                    
+      
                     <p class="hidden">
                         <label>Don't fill this out if you're human: <input name="bot-field"></label>
                     </p>
@@ -90,7 +91,8 @@
                         <label for="additional-info">Additional Information (Allergies, Special Needs, etc.):</label>
                         <textarea id="additional-info" name="additional-info" rows="4"></textarea>
                     </div>
-                    
+                    <input type="hidden" name="_redirect" value="/Thank-you.html">
+
                     <div class="form-actions">
                         <input type="submit" value="Submit Registration" class="button">
                         <input type="reset" value="Clear Form" class="button secondary">
@@ -123,7 +125,6 @@
                         <p>Monday-Friday: 9:00 AM - 5:00 PM</p>
                     </div>
                 </div>
-                
             </section>
         </div>
     </div>
