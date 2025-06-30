@@ -186,7 +186,6 @@ body {
     margin: 0;
 }
 
- 
 .button {
     display: inline-block;
     background-color: var(--secondary-color);
@@ -200,6 +199,7 @@ body {
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+
 
 .button:hover {
     background-color: var(--accent-color);
