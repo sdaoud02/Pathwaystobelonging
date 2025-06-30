@@ -1,0 +1,107 @@
+.registration, .contact-info {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.registration h2, .contact-info h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    font-size: 1.8rem;
+}
+
+.registration h2, 
+.contact-info h2 {
+    font-weight: 700; 
+}
+.hidden {
+    display: none;
+}
+form {
+    display: grid;
+    gap: 1.2rem;
+}
+
+label {
+    font-weight: 500;
+    color: var(--dark-color);
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+input {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.contact-methods {
+    margin-top: 1.5rem;
+}
+
+.contact-methods p {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-methods a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-methods a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+    border: 1px solid #c3e6cb;
+    text-align: center;
+}
+
+.hidden { 
+    display: none; 
+}
+
+
+@media (min-width: 591px) {
+    .main {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (min-width: 790px) {
+    .main {
+        grid-template-columns: 2fr 1fr;
+    }
+    
+    form {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    h3, #child-name, #child-age, #num-children, .button {
+        grid-column: 1 / -1;
+    }
+}

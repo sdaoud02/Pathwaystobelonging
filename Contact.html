@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathways to Belonging | Register</title>
+    <link rel="stylesheet" href="style/Contact.css">
+    <link rel="stylesheet" href="style/Shared.css">
+</head>
+<body>
+   <header class="header" role="banner">
+      <a href="home.html" class="logo-link">
+          <img src="images/Youth empowerment logo.png" alt="Pathways to Belonging logo" width="200" height="200">
+      </a>
+      <h1>Pathways to Belonging</h1>
+  </header>
+
+    <div class="container">
+        <nav class="navbar col-sm-12">
+            <ul>
+                <li><a href="home.html">🏠 Home</a></li>
+                <li><a href="about.html">🧭 About</a></li>
+                <li><a href="about.html#scheduling">📅 Schedule</a></li>
+                <li><a href="activities.html">🎨 Activities</a></li>
+                <li><a href="contact.html" class="active">📝 Register</a></li>
+            </ul>
+        </nav>
+
+        <div class="main">
+            <section class="registration">
+                <h2>📝 Register Your Child</h2>
+                <p>Complete the form below to register your child for our summer program. Spaces are limited!</p>
+                <div data-netlify-success="true" class="success-message hidden">
+                  <p>✅ Thank you for registering! We've received your submission and will contact you soon.</p>
+                  <p>You'll also receive a confirmation email at the address you provided.</p>
+              </div>
+
+              <form name="registration" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                  <p class="hidden">
+                      <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                  </p>
+
+                  <h3>Parent/Guardian Information</h3>
+                  <label for="parent-name">Name:</label>
+                  <input type="text" id="parent-name" name="parent-name" required>
+
+                  <label for="phone">Phone:</label>
+                  <input type="tel" id="phone" name="phone" required>
+
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" name="email" required>
+
+                  <h3>Child Information</h3>
+                  <label for="child-name">Child's Name:</label>
+                  <input type="text" id="child-name" name="child-name" required>
+
+                  <label for="child-age">Age:</label>
+                  <input type="number" id="child-age" name="child-age" min="7" max="18" required>
+
+                  <label for="num-children">Number of Children Registering:</label>
+                  <input type="number" id="num-children" name="num-children" min="1" max="5">
+
+                  <input type="submit" value="Submit Registration" class="button">
+              </form>
+          </section>
+
+          <section class="contact-info">
+              <h2>Contact Information</h2>
+              <p>Have questions about our program or registration? Get in touch!</p>
+              
+              <div class="contact-methods">
+                  <p><strong>📧 Email:</strong> <a href="mailto:Sarahdaoud801@gmail.com">Sarahdaoud801@gmail.com</a></p>
+                  <p><strong>📞 Phone:</strong> (825)-365-6858</p>
+                  <p><strong>📍 Location:</strong> Calgary, Alberta</p>
+              </div>
+          </section>
+      </div>
+  </div>
+
+  <footer>
+      <div class="footer">
+          <p>&copy; 2025 Pathways to Belonging. All rights reserved.</p>
+      </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,80 @@
+.hero ul {
+    list-style-position: inside;
+    padding-left: 0;
+}
+.hero h2 {
+    font-weight: 700;
+
+}
+
+.hero li {
+    padding-left: 0;
+    margin-left: 1em;
+    text-indent: -1em;
+}
+.hero {
+    text-align: center;
+    padding: 2rem;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.hero h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.highlights {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.schedule-preview, 
+.register-cta, 
+.contact-preview {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.small-note {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-top: 0.5rem;
+}
+
+@media (min-width: 591px) and (max-width: 789px) {
+    .main {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .hero {
+        grid-column: 1 / -1;
+    }
+}
+
+
+@media (min-width: 790px) {
+    .main {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .hero {
+        grid-column: 1 / -1;
+    }
+    
+    .schedule-preview {
+        grid-column: 1 / 3;
+    }
+}
