@@ -295,20 +295,52 @@ html {
     .navbar ul {
         gap: 0.5rem;
     }
+    @media (max-width: 590px) {
+        .header {
+            order: 2;  
+            padding: 1rem 0;
+        }
+        
+        .navbar {
+            order: 1;  
+            position: static;  
+            padding: 0.5rem 0;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .main {
+            order: 3;
+            padding-top: 1rem;
+        }
+        
+        .header img {
+            width: 150px;
+            height: 150px;
+        }
+        
+        .header h1 {
+            font-size: 1.8rem;
+            margin-top: 0.5rem;
+        }
+    }
+    
     @media (max-width: 600px) {
         .navbar ul {
-          flex-wrap: nowrap;
-          overflow-x: auto; /* Horizontal scroll if needed */
-          padding-bottom: 10px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            justify-content: flex-start;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
         }
-      }
-
-    @media (max-width: 590px) {
-        .navbar {
-            position: fixed; 
-        }
-        .main {
-            padding-top: 80px;  
+        
+        .navbar a {
+            padding: 0.5rem;
+            font-size: 0.9rem;
         }
     }
 }
