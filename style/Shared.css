@@ -247,6 +247,13 @@ html {
     .navbar ul {
         gap: 0.5rem;
     }
+    @media (max-width: 600px) {
+        .navbar ul {
+          flex-wrap: nowrap;
+          overflow-x: auto; /* Horizontal scroll if needed */
+          padding-bottom: 10px;
+        }
+      }
 
     @media (max-width: 590px) {
         .navbar {
