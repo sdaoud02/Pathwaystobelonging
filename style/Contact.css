@@ -1,3 +1,13 @@
+
+.required {
+    color: #d00;
+    font-size: 0.8em;
+  }
+  #form-errors {
+    color: #d00;
+    margin: 1rem 0;
+  }
+  
 .registration, .contact-info {
     background: white;
     border-radius: 8px;

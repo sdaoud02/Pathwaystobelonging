@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style/Shared.css">
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
    <header class="header" role="banner">
       <a href="home.html" class="logo-link">
           <img src="images/Youth empowerment logo.png" alt="Pathways to Belonging logo" width="200" height="200">
@@ -16,7 +17,7 @@
   </header>
 
     <div class="container">
-        <nav class="navbar col-sm-12">
+        <nav class="navbar" aria-label="Main navigation">
             <ul>
                 <li><a href="home.html">🏠 Home</a></li>
                 <li><a href="about.html">🧭 About</a></li>
@@ -31,25 +32,18 @@
                 <h2>📝 Register Your Child</h2>
                 <p>Complete the form below to register your child for our summer program. Spaces are limited!</p>
             
-                 <div data-netlify-success="true" class="success-message hidden">
-                    <p>✅ Thank you for registering! We've received your submission and will contact you soon.</p>
-                    <p>You'll also receive a confirmation email at the address you provided.</p>
-                    <a href="contact.html" class="button">Register Another Child</a>
-                </div>
-
-                 <form 
+                <form 
                     id="registration-form"
                     name="registration" 
                     method="POST" 
                     netlify
                     netlify-honeypot="bot-field"
-                    action="/Thank-you.html"      
-                    >
-                    
-      
+                >
                     <p class="hidden">
                         <label>Don't fill this out if you're human: <input name="bot-field"></label>
                     </p>
+
+                    <input type="hidden" name="_redirect" value="Thank-you.html">
 
                     <fieldset>
                         <legend>Parent/Guardian Information</legend>
@@ -65,9 +59,9 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="email">Email Address:</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
+                            <label for="email">Email Address: <span class="required">(required)</span></label>
+                            <input type="email" id="email" name="email" required aria-required="true">
+                          </div>
                     </fieldset>
 
                     <fieldset>
@@ -93,7 +87,6 @@
                         <label for="additional-info">Additional Information (Allergies, Special Needs, etc.):</label>
                         <textarea id="additional-info" name="additional-info" rows="4"></textarea>
                     </div>
-                    <input type="hidden" name="_redirect" value="/Thank-you.html">
 
                     <div class="form-actions">
                         <input type="submit" value="Submit Registration" class="button">
