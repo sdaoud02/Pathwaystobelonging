@@ -43,22 +43,20 @@
                     <p>If you're not redirected automatically, <a href="/Thank-you.html">click here</a>.</p>
                 </div>
 
-                <form 
-                    id="registration-form"
+                <form id="registration-form"
                     name="registration" 
                     method="POST" 
                     action="/Thank-you.html"
                     netlify
-                    netlify-honeypot="bot-field"
-                    data-netlify="true"
-                    onsubmit="sessionStorage.setItem('formSubmitted', 'true')"
-                >
-                    <input type="hidden" name="_redirect" value="/Thank-you.html">
-                    <input type="hidden" name="_subject" value="New Registration Submission">
-                    
-                    <p class="hidden">
-                        <label>Don't fill this out if you're human: <input name="bot-field"></label>
-                    </p>
+                    netlify-honeypot="bot-field">
+      
+                <input type="hidden" name="form-name" value="registration">
+                <input type="hidden" name="_redirect" value="/Thank-you.html">
+                <input type="hidden" name="_subject" value="New Registration Submission">
+    
+                <p class="hidden">
+                 <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                </p>
 
                     <fieldset>
                         <legend>Parent/Guardian Information</legend>
