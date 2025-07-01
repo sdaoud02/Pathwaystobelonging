@@ -6,6 +6,12 @@
     <title>Pathways to Belonging | Register</title>
     <link rel="stylesheet" href="style/Contact.css">
     <link rel="stylesheet" href="style/Shared.css">
+    <script>
+         if (sessionStorage.getItem('formSubmitted')) {
+            sessionStorage.removeItem('formSubmitted');
+            window.location.href = '/Thank-you.html';
+        }
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
@@ -32,20 +38,22 @@
                 <h2>📝 Register Your Child</h2>
                 <p>Complete the form below to register your child for our summer program. Spaces are limited!</p>
                 
-                 <div id="form-success" class="success-message" style="display: none;">
-                    <p>✅ Thank you! Your submission has been received.</p>
-                    <p>You'll be redirected shortly. If not, <a href="Thank-you.html">click here</a>.</p>
+                 <div id="form-fallback" style="display:none; text-align:center; padding:2rem; background:#d4edda; border-radius:8px;">
+                    <h2>✅ Form Submitted Successfully</h2>
+                    <p>If you're not redirected automatically, <a href="/Thank-you.html">click here</a>.</p>
                 </div>
 
                 <form 
                     id="registration-form"
                     name="registration" 
                     method="POST" 
+                    action="/Thank-you.html"
                     netlify
                     netlify-honeypot="bot-field"
                     data-netlify="true"
+                    onsubmit="sessionStorage.setItem('formSubmitted', 'true')"
                 >
-                    <input type="hidden" name="_redirect" value="https://pathwaystobelonging.netlify.app/Thank-you.html">
+                    <input type="hidden" name="_redirect" value="/Thank-you.html">
                     <input type="hidden" name="_subject" value="New Registration Submission">
                     
                     <p class="hidden">
@@ -137,13 +145,24 @@
         </div>
     </footer>
 
-     <script>
-        document.getElementById('registration-form').addEventListener('submit', function(e) {
-             document.getElementById('form-success').style.display = 'block';
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('registration-form');
+            const fallback = document.getElementById('form-fallback');
             
-             document.getElementById('form-success').scrollIntoView({ behavior: 'smooth' });
-            
-             this.style.display = 'none';
+            form.addEventListener('submit', function(e) {
+                 fallback.style.display = 'block';
+                 form.style.display = 'none';
+                
+                 setTimeout(function() {
+                    if (!window.location.href.includes('Thank-you.html')) {
+                        fallback.innerHTML += '<p>Still waiting? <a href="/Thank-you.html">Click here to continue</a></p>';
+                    }
+                }, 3000);
+            });
+                        if (window.location.search.includes('form_submitted=true')) {
+                window.location.href = '/Thank-you.html';
+            }
         });
     </script>
 </body>
