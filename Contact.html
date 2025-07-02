@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style/Contact.css">
     <link rel="stylesheet" href="style/Shared.css">
     <script>
-         if (sessionStorage.getItem('formSubmitted')) {
+        if (sessionStorage.getItem('formSubmitted')) {
             sessionStorage.removeItem('formSubmitted');
             window.location.href = '/Thank-you.html';
         }
@@ -27,8 +27,6 @@
             <ul>
                 <li><a href="home.html">🏠 Home</a></li>
                 <li><a href="about.html">🧭 About</a></li>
-                <li><a href="about.html#scheduling">📅 Schedule</a></li>
-                <li><a href="activities.html">🎨 Activities</a></li>
                 <li><a href="contact.html" class="active">📝 Register</a></li>
             </ul>
         </nav>
@@ -38,25 +36,25 @@
                 <h2>📝 Register Your Child</h2>
                 <p>Complete the form below to register your child for our summer program. Spaces are limited!</p>
                 
-                 <div id="form-fallback" style="display:none; text-align:center; padding:2rem; background:#d4edda; border-radius:8px;">
+                <div id="form-fallback" style="display:none; text-align:center; padding:2rem; background:#d4edda; border-radius:8px;">
                     <h2>✅ Form Submitted Successfully</h2>
-                    <p>If you're not redirected automatically, <a href="/Thank-you.html">click here</a>.</p>
+                    <p>If you're not redirected automatically, <a href="Thank-you.html">click here</a>.</p>
                 </div>
 
                 <form id="registration-form"
                     name="registration" 
                     method="POST" 
-                    action="/Thank-you.html"
+                    action="Thank-you.html"
                     netlify
                     netlify-honeypot="bot-field">
       
-                <input type="hidden" name="form-name" value="registration">
-                <input type="hidden" name="_redirect" value="/Thank-you.html">
-                <input type="hidden" name="_subject" value="New Registration Submission">
+                    <input type="hidden" name="form-name" value="registration">
+                    <input type="hidden" name="_redirect" value="/Thank-you.html">
+                    <input type="hidden" name="_subject" value="New Registration Submission">
     
-                <p class="hidden">
-                 <label>Don't fill this out if you're human: <input name="bot-field"></label>
-                </p>
+                    <p class="hidden">
+                        <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                    </p>
 
                     <fieldset>
                         <legend>Parent/Guardian Information</legend>
@@ -81,18 +79,22 @@
                         <legend>Child Information</legend>
                         
                         <div class="form-group">
-                            <label for="child-name">Child's Full Name:<span class="required">(required)</span></label>
-                            <input type="text" id="child-name" name="child-name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="child-age">Child's Age:<span class="required">(required)</span></label>
-                            <input type="number" id="child-age" name="child-age" min="7" max="18" required>
-                        </div>
-                        
-                        <div class="form-group">
                             <label for="num-children">Number of Children Registering<span class="required">(required)</span></label>
-                            <input type="number" id="num-children" name="num-children" min="1" max="5" value="1">
+                            <input type="number" id="num-children" name="num-children" min="1" max="5" value="1" required onchange="updateChildFields()">
+                        </div>
+                        
+                        <div id="child-fields-container">
+                            <div class="child-field">
+                                <div class="form-group">
+                                    <label for="child-name-1">Child's Full Name:<span class="required">(required)</span></label>
+                                    <input type="text" id="child-name-1" name="child-name[]" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="child-age-1">Child's Age:<span class="required">(required)</span></label>
+                                    <input type="number" id="child-age-1" name="child-age[]" min="6" max="17" required>
+                                </div>
+                            </div>
                         </div>
                     </fieldset>
 
@@ -144,21 +146,53 @@
     </footer>
 
     <script>
+        function updateChildFields() {
+            const numChildren = document.getElementById('num-children').value;
+            const container = document.getElementById('child-fields-container');
+            
+             
+            container.innerHTML = '';
+            for (let i = 1; i <= numChildren; i++) {
+                const childField = document.createElement('div');
+                childField.className = 'child-field';
+                if (i > 1) {
+                    childField.style.marginTop = '1.5rem';
+                    childField.style.paddingTop = '1.5rem';
+                    childField.style.borderTop = '1px dashed #ddd';
+                }
+                
+                childField.innerHTML = `
+                    <div class="form-group">
+                        <label for="child-name-${i}">Child ${i} Full Name:<span class="required">(required)</span></label>
+                        <input type="text" id="child-name-${i}" name="child-name[]" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="child-age-${i}">Child ${i} Age:<span class="required">(required)</span></label>
+                        <input type="number" id="child-age-${i}" name="child-age[]" min="6" max="17" required>
+                    </div>
+                `;
+                
+                container.appendChild(childField);
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('registration-form');
             const fallback = document.getElementById('form-fallback');
             
             form.addEventListener('submit', function(e) {
-                 fallback.style.display = 'block';
-                 form.style.display = 'none';
+                fallback.style.display = 'block';
+                form.style.display = 'none';
                 
-                 setTimeout(function() {
+                setTimeout(function() {
                     if (!window.location.href.includes('Thank-you.html')) {
                         fallback.innerHTML += '<p>Still waiting? <a href="/Thank-you.html">Click here to continue</a></p>';
                     }
                 }, 3000);
             });
-                        if (window.location.search.includes('form_submitted=true')) {
+
+            if (window.location.search.includes('form_submitted=true')) {
                 window.location.href = '/Thank-you.html';
             }
         });
