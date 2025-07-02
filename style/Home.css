@@ -11,7 +11,9 @@
     margin-bottom: 1rem;
     font-size: 1.8rem;  
 }
-
+.footer-content p {
+    color: white;
+}
  
 .highlights,
 .schedule-preview, 

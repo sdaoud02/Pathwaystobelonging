@@ -172,6 +172,9 @@ a:hover, a:focus {
     margin-top: 2rem;
 }
 
+.footer-content p {
+    color: white;
+}
 .footer a {
     color: #a3bffa;
     text-decoration: underline;
@@ -258,6 +261,9 @@ select:focus {
     color: var(--error-color);
     font-size: 0.8em;
     font-weight: bold;
+}
+.header h1 {
+    color: white;
 }
 
  a:focus, 
