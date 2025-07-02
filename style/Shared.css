@@ -1,7 +1,7 @@
 :root {
     --primary-color: #2c3e50;
     --secondary-color: #3498db;
-    --accent-color: #2980b9;
+    --accent-color: #2874A6; 
     --light-color: #ecf0f1;
     --dark-color: #34495e;
     --text-color: #222;
@@ -11,7 +11,12 @@
     --transition: all 0.3s ease;
 }
 
- 
+.button:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+    transform: translateY(-2px);
+}
+
 .skip-link {
     position: absolute;
     left: -10000px;
@@ -141,7 +146,7 @@ a:hover {
     margin-top: 2rem;
 }
 
-/* UI Components */
+ 
 .button {
     display: inline-block;
     background-color: var(--secondary-color);
@@ -223,6 +228,11 @@ select:focus {
     font-size: 0.9rem;
     margin-top: 0.25rem;
   }
+
+  a:focus, button:focus, input:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
   
 @media (max-width: 790px) {
     .header h1 {

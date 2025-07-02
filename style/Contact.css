@@ -1,3 +1,14 @@
+input:focus, textarea:focus, select:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.help-text {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    display: block;
+    margin-top: 0.25rem;
+}
 .required {
     color: #d00;
     font-size: 0.8em;
