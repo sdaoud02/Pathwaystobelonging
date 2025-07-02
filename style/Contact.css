@@ -93,6 +93,14 @@ legend {
     justify-content: flex-start;
 }
 
+.error-message {
+    color: #b71c1c;  
+    font-weight: bold;
+    background-color: #ffebee;
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+}
 
 .checkbox-label {
     display: flex;

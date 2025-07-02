@@ -14,7 +14,7 @@
     </script>
 </head>
 <body>
-    <a href="#main" class="skip-link">Skip to main content</a>
+    <a href="#main" class="skip-link">
     <header class="header" role="banner">
         <a href="home.html" class="logo-link">
             <img src="images/Youth empowerment logo.png" alt="Pathways to Belonging logo" width="200" height="200">
@@ -25,9 +25,9 @@
     <div class="container">
         <nav class="navbar" aria-label="Main navigation">
             <ul>
-                <li><a href="home.html"><span aria-hidden="true">🏠</span> Home</a></li>
-                <li><a href="about.html"><span aria-hidden="true">🧭</span> About</a></li>
-                <li><a href="contact.html"><span aria-hidden="true">📝</span> Register</a></li>
+                <li><a href="/home.html"><span role ="img"aria-label=>🏠</span> Home</a></li>
+                <li><a href="/about.html"><span role="img" aria-label>🧭</span> About</a></li>
+                <li><a href="/contact.html"><span role="img" aria-label>📝</span> Register</a></li>
             </ul>
         </nav>
 
@@ -38,13 +38,13 @@
                 
                 <div id="form-fallback" style="display:none; text-align:center; padding:2rem; background:#d4edda; border-radius:8px;">
                     <h2>✅ Form Submitted Successfully</h2>
-                    <p>If you're not redirected automatically, <a href="Thank-you.html">click here</a>.</p>
+                    <p>If you're not redirected automatically, <a href="/Thank-you.html">click here</a>.</p>
                 </div>
 
                 <form id="registration-form"
                     name="registration" 
                     method="POST" 
-                    action="Thank-you.html"
+                    action="/Thank-you.html"
                     netlify
                     netlify-honeypot="bot-field">
       
@@ -118,7 +118,7 @@
                 
                 <div class="contact-methods">
                     <div class="contact-item">
-                        <span class="contact-icon">📧</span>
+                        <span class="contact-icon" role="img" aria-label="Email">📧</span>
                         <a href="mailto:Sarahdaoud801@gmail.com">Sarahdaoud801@gmail.com</a>
                     </div>
                     
