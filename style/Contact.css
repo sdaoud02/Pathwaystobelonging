@@ -18,8 +18,8 @@ input:focus, textarea:focus, select:focus {
     margin: 1rem 0;
   }
   
-  .footer-content p {
-    color: white;
+.footer-content p  {
+    color: white !important;
 }
 .registration, .contact-info {
     background: white;
