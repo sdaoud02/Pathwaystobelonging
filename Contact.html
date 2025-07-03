@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pathways to Belonging | Register</title>
-    <link rel="stylesheet" href="style/Contact.css">
-    <link rel="stylesheet" href="style/Shared.css">
+    <link rel="stylesheet" href="/style/Contact.css">
+    <link rel="stylesheet" href="/style/Shared.css">
+    <script>
+        if (sessionStorage.getItem('formSubmitted')) {
+            sessionStorage.removeItem('formSubmitted');
+            window.location.href = "/thank-you.html";
+        }
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
