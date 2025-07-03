@@ -33,22 +33,21 @@
                 <div id="form-fallback" style="display:none; text-align:center; padding:2rem; background:#d4edda; border-radius:8px;">
                     <h2>✅ Form Submitted Successfully</h2>
                     <p>If you're not redirected automatically, <a href="/Thank-you.html">click here</a>.</p>
-                </div>
+                 </div>
 
-                <form id="registration-form"
-                    name="registration" 
-                    method="POST" 
-                    action="/Thank-you.html"
-                    netlify
-                    netlify-honeypot="bot-field">
-      
-                    <input type="hidden" name="form-name" value="registration">
-                    <input type="hidden" name="_redirect" value="/Thank-you.html">
-                    <input type="hidden" name="_subject" value="New Registration Submission">
-    
-                    <p class="hidden">
-                        <label for="bot-field">Leave this field empty if you're human:</label>
-                        <input type="text" id="bot-field" name="bot-field">
+            <form id="registration-form"
+                name="registration" 
+                method="POST" 
+                action="/Thank-you.html"
+                netlify
+                netlify-honeypot="bot-field">
+  
+                <input type="hidden" name="form-name" value="registration">
+                
+                <p class="hidden">
+                    <label for="bot-field">Leave this field empty if you're human:</label>
+                    <input type="text" id="bot-field" name="bot-field">
+              
                     </p>
 
                     <fieldset>
@@ -101,7 +100,7 @@
                     </div>
 
                     <div class="form-actions">
-                        <input type="submit" value="Submit Registration" class="button">
+                        <input type="submit" value="Submit Form" class="button">
                         <input type="reset" value="Clear Form" class="button secondary">
                     </div>
                 </form>
@@ -142,8 +141,8 @@
         </div>
     </footer>
 
-    <script>
-        function updateChildFields() {
+      <script>
+         function updateChildFields() {
             const numChildren = document.getElementById('num-children').value;
             const container = document.getElementById('child-fields-container');
             
@@ -173,16 +172,12 @@
             }
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('registration-form');
-            const fallback = document.getElementById('form-fallback');
+         document.getElementById('registration-form').addEventListener('submit', function(e) {
+             document.getElementById('form-success').style.display = 'block';
+            this.style.display = 'none';
             
-            form.addEventListener('submit', function(e) {
-                 fallback.style.display = 'block';
-                form.style.display = 'none';
-                
-             });
-        });
+         });
     </script>
+
 </body>
 </html>
