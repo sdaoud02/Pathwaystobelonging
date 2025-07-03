@@ -22,6 +22,7 @@
         <h1>Pathways to Belonging</h1>
     </header>
 
+
     <div class="container">
         <nav class="navbar col-sm-12">
             <ul>
@@ -36,18 +37,17 @@
                 <h2>📝 Register Your Child</h2>
                 <p>Complete the form below to register your child for our summer program. Spaces are limited!</p>
                 
-                <div id="form-fallback" class="success-message" style="display:none;">
+                <div id="form-fallback" style="display:none; text-align:center; padding:2rem; background:#d4edda; border-radius:8px;">
                     <h2>✅ Form Submitted Successfully</h2>
-                    <p>Your registration is being processed. You'll be redirected shortly...</p>
-                    <p class="redirect-note">If you're not redirected automatically, <a href="Thank-you.html">click here</a></p>
+                    <p>If you're not redirected automatically, <a href="Thank-you.html">click here</a>.</p>
                 </div>
 
                 <form id="registration-form"
-                name="registration" 
-                method="POST"
-                action="Thank-you.html"
-                netlify
-                netlify-honeypot="bot-field">
+                    name="registration" 
+                    method="POST" 
+                    action="Thank-you.html"
+                    netlify
+                    netlify-honeypot="bot-field">
       
                     <input type="hidden" name="form-name" value="registration">
                     <input type="hidden" name="_redirect" value="Thank-you.html">
@@ -141,10 +141,11 @@
             </section>
         </div>
     </div>
-        <footer class="footer" role="contentinfo">
-            <div class="footer-content">
-                <p>&copy; 2025 Pathways to Belonging. All rights reserved.</p>
-            </div>
+
+    <footer>
+        <div class="footer">
+            <p>&copy; 2025 Pathways to Belonging. All rights reserved.</p>
+        </div>
     </footer>
 
     <script>
@@ -180,22 +181,22 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-         const form = document.getElementById('registration-form');
-         const fallback = document.getElementById('form-fallback');
+            const form = document.getElementById('registration-form');
+            const fallback = document.getElementById('form-fallback');
             
             form.addEventListener('submit', function(e) {
                 fallback.style.display = 'block';
                 form.style.display = 'none';
                 
                 setTimeout(function() {
-                    if (!window.location.href.includes('/Thank-you.html')) {
-                        fallback.innerHTML += '<p>Still waiting? <a href="/Thank-you.html">Click here to continue</a></p>';
+                    if (!window.location.href.includes('Thank-you.html')) {
+                        fallback.innerHTML += '<p>Still waiting? <a href="Thank-you.html">Click here to continue</a></p>';
                     }
                 }, 3000);
             });
 
             if (window.location.search.includes('form_submitted=true')) {
-                window.location.href = '/Thank-you.html';
+                window.location.href = 'Thank-you.html';
             }
         });
     </script>
