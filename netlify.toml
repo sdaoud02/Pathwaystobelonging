@@ -10,3 +10,5 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
 
+[[plugins]]
+  package = "@netlify/plugin-forms"
