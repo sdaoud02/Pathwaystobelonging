@@ -1,6 +1,6 @@
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "Thank-you.html"
+  to = "Thank-you.html"
   status = 200
 
 [[headers]]
