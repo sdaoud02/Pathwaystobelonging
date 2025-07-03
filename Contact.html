@@ -43,11 +43,10 @@
                 </div>
 
                 <form id="registration-form"
-                    name="registration" 
-                    method="POST" 
-                    action="Thank-you.html"
-                    netlify
-                    netlify-honeypot="bot-field">
+                name="registration" 
+                method="POST" 
+                data-netlify="true"
+                netlify-honeypot="bot-field">
       
                     <input type="hidden" name="form-name" value="registration">
                     <input type="hidden" name="_redirect" value="Thank-you.html">
@@ -180,8 +179,8 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('registration-form');
-            const fallback = document.getElementById('form-fallback');
+         const form = document.getElementById('registration-form');
+         const fallback = document.getElementById('form-fallback');
             
             form.addEventListener('submit', function(e) {
                 fallback.style.display = 'block';

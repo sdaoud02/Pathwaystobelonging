@@ -1,7 +1,4 @@
-[[redirects]]
-  from = "/Thank-you.html"
-  to = "/Thank-you.html"
-  status = 200
+
 
 [[headers]]
   for = "/*"
