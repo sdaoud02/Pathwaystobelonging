@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pathways to Belonging | Register</title>
-    <link rel="stylesheet" href="/style/Contact.css">
-    <link rel="stylesheet" href="/style/Shared.css">
+    <link rel="stylesheet" href="style/Contact.css">
+    <link rel="stylesheet" href="style/Shared.css">
     <script>
         if (sessionStorage.getItem('formSubmitted')) {
             sessionStorage.removeItem('formSubmitted');
-            window.location.href = "/thank-you.html";
+            window.location.href = 'Thank-you.html';
         }
     </script>
 </head>
@@ -22,12 +22,13 @@
         <h1>Pathways to Belonging</h1>
     </header>
 
+
     <div class="container">
         <nav class="navbar col-sm-12">
             <ul>
-               <li><a href="home.html">🏠Home</a></li>
+               <li><a href="home.html" >🏠Home</a></li>
                <li><a href="about.html">🧭About</a></li>
-               <li><a href="contact.html" class="active">📝Register</a></li>
+               <li><a href="contact.html"class="active">📝Register</a></li>
             </ul>
          </nav>
 
@@ -38,22 +39,23 @@
                 
                 <div id="form-fallback" style="display:none; text-align:center; padding:2rem; background:#d4edda; border-radius:8px;">
                     <h2>✅ Form Submitted Successfully</h2>
-                    <p>If you're not redirected automatically, <a href="/Thank-you.html">click here</a>.</p>
-                 </div>
+                    <p>If you're not redirected automatically, <a href="Thank-you.html">click here</a>.</p>
+                </div>
 
-            <form id="registration-form"
-                name="registration" 
-                method="POST" 
-                action="/Thank-you.html"
-                netlify
-                netlify-honeypot="bot-field">
-  
-                <input type="hidden" name="form-name" value="registration">
-                
-                <p class="hidden">
-                    <label for="bot-field">Leave this field empty if you're human:</label>
-                    <input type="text" id="bot-field" name="bot-field">
-              
+                <form id="registration-form"
+                    name="registration" 
+                    method="POST" 
+                    action="Thank-you.html"
+                    netlify
+                    netlify-honeypot="bot-field">
+      
+                    <input type="hidden" name="form-name" value="registration">
+                    <input type="hidden" name="_redirect" value="Thank-you.html">
+                    <input type="hidden" name="_subject" value="New Registration Submission">
+    
+                    <p class="hidden">
+                        <label for="bot-field">Leave this field empty if you're human:</label>
+                        <input type="text" id="bot-field" name="bot-field">
                     </p>
 
                     <fieldset>
@@ -96,7 +98,6 @@
                                            aria-describedby="age-help-1">
                                     <span id="age-help-1" class="help-text">Must be between 6-17 years</span>
                                 </div>
-                            </div>
                         </div>
                     </fieldset>
 
@@ -147,11 +148,12 @@
         </div>
     </footer>
 
-      <script>
-         function updateChildFields() {
+    <script>
+        function updateChildFields() {
             const numChildren = document.getElementById('num-children').value;
             const container = document.getElementById('child-fields-container');
             
+             
             container.innerHTML = '';
             for (let i = 1; i <= numChildren; i++) {
                 const childField = document.createElement('div');
@@ -175,28 +177,28 @@
                 `;
                 
                 container.appendChild(childField);
-                
-    document.addEventListener('DOMContentLoaded', function() {
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('registration-form');
             const fallback = document.getElementById('form-fallback');
-
+            
             form.addEventListener('submit', function(e) {
-                 fallback.style.display = 'block';
-                 form.style.display = 'none';
-
+                fallback.style.display = 'block';
+                form.style.display = 'none';
+                
                 setTimeout(function() {
                     if (!window.location.href.includes('Thank-you.html')) {
-                        fallback.innerHTML += '<p>Still waiting? <a href="/Thank-you.html">Click here to continue</a></p>';
+                        fallback.innerHTML += '<p>Still waiting? <a href="Thank-you.html">Click here to continue</a></p>';
                     }
                 }, 3000);
             });
 
-             if (window.location.search.includes('form_submitted=true')) {
-                window.location.href = '/Thank-you.html';
+            if (window.location.search.includes('form_submitted=true')) {
+                window.location.href = 'Thank-you.html';
             }
         });
-        </script>
-
-
+    </script>
 </body>
 </html>
