@@ -9,7 +9,7 @@
     <script>
         if (sessionStorage.getItem('formSubmitted')) {
             sessionStorage.removeItem('formSubmitted');
-            window.location.href = '/Thank-you.html';
+            window.location.href = 'Thank-you.html';
         }
     </script>
 </head>
@@ -50,7 +50,7 @@
                     netlify-honeypot="bot-field">
       
                     <input type="hidden" name="form-name" value="registration">
-                    <input type="hidden" name="_redirect" value="/Thank-you.html">
+                    <input type="hidden" name="_redirect" value="Thank-you.html">
                     <input type="hidden" name="_subject" value="New Registration Submission">
     
                     <p class="hidden">
