@@ -175,15 +175,28 @@
                 `;
                 
                 container.appendChild(childField);
-            }
-        }
+                
+    document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('registration-form');
+            const fallback = document.getElementById('form-fallback');
 
-         document.getElementById('registration-form').addEventListener('submit', function(e) {
-             document.getElementById('form-success').style.display = 'block';
-            this.style.display = 'none';
-            
-         });
-    </script>
+            form.addEventListener('submit', function(e) {
+                 fallback.style.display = 'block';
+                 form.style.display = 'none';
+
+                setTimeout(function() {
+                    if (!window.location.href.includes('Thank-you.html')) {
+                        fallback.innerHTML += '<p>Still waiting? <a href="/Thank-you.html">Click here to continue</a></p>';
+                    }
+                }, 3000);
+            });
+
+             if (window.location.search.includes('form_submitted=true')) {
+                window.location.href = '/Thank-you.html';
+            }
+        });
+        </script>
+
 
 </body>
 </html>
