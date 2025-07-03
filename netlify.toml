@@ -1,9 +1,9 @@
 [[redirects]]
   from = "/Thank-you.html"
-  to = "/Thank-you.html"
-  status = 200
+  to = "/thank-you.html"
+  status = 301
 
-[[headers]]
+  [[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
