@@ -9,7 +9,7 @@
     <script>
         if (sessionStorage.getItem('formSubmitted')) {
             sessionStorage.removeItem('formSubmitted');
-            window.location.href = '/Thank-you.html';
+            window.location.href = 'thank-you.html';
         }
     </script>
 </head>
@@ -39,13 +39,13 @@
                 
                 <div id="form-fallback" style="display:none; text-align:center; padding:2rem; background:#d4edda; border-radius:8px;">
                     <h2>✅ Form Submitted Successfully</h2>
-                    <p>If you're not redirected automatically, <a href="/Thank-you.html">click here</a>.</p>
+                    <p>If you're not redirected automatically, <a href="thank-you.html">click here</a>.</p>
                 </div>
 
                 <form id="registration-form"
                     name="registration" 
                     method="POST" 
-                    action="/Thank-you.html"
+                    action="thank-you.html"
                     netlify
                     netlify-honeypot="bot-field">
       
@@ -189,14 +189,14 @@
                 
             
             setTimeout(function() {
-                    if (!window.location.href.includes('/Thank-you.html')) {
-                        fallback.innerHTML += '<p>Still waiting? <a href="/Thank-you.html">Click here to continue</a></p>';
+                    if (!window.location.href.includes('thank-you.html')) {
+                        fallback.innerHTML += '<p>Still waiting? <a href="thank-you.html">Click here to continue</a></p>';
                     }
                 }, 3000);
             });
 
             if (window.location.search.includes('form_submitted=true')) {
-                window.location.href = '/Thank-you.html';
+                window.location.href = 'thank-you.html';
             }
         });
     </script>
