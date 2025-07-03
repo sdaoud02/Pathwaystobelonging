@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pathways to Belonging | Register</title>
-    <link rel="stylesheet" href="style/Contact.css">
-    <link rel="stylesheet" href="style/Shared.css">
+    <link rel="stylesheet" href="/style/Contact.css">
+    <link rel="stylesheet" href="/style/Shared.css">
     <script>
         if (sessionStorage.getItem('formSubmitted')) {
             sessionStorage.removeItem('formSubmitted');
-            window.location.href = '/Thank-you.html';
+            window.location.href = "/thank-you.html";
         }
     </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
     <header class="header" role="banner">
-        <a href="home.html" class="logo-link">
-            <img src="images/Youth empowerment logo.png" alt="Pathways to Belonging logo" width="200" height="200">
+        <a href="/home.html" class="logo-link">
+            <img src="/images/Youth empowerment logo.png" alt="Pathways to Belonging logo" width="200" height="200">
         </a>
         <h1>Pathways to Belonging</h1>
     </header>
@@ -25,9 +25,9 @@
     <div class="container">
         <nav class="navbar" aria-label="Main navigation">
             <ul>
-                <li><a href="home.html">🏠 Home</a></li>
-                <li><a href="about.html">🧭 About</a></li>
-                <li><a href="contact.html" class="active">📝 Register</a></li>
+                <li><a href="/home.html">🏠 Home</a></li>
+                <li><a href="/about.html">🧭 About</a></li>
+                <li><a href="/contact.html" class="active">📝 Register</a></li>
             </ul>
         </nav>
 
@@ -38,20 +38,16 @@
                 
                 <div id="form-fallback" style="display:none; text-align:center; padding:2rem; background:#d4edda; border-radius:8px;">
                     <h2>✅ Form Submitted Successfully</h2>
-                    <p>If you're not redirected automatically, <a href="/Thank-you.html">click here</a>.</p>
+                    <p>If you're not redirected automatically, <a href="/thank-you.html">click here</a>.</p>
                 </div>
 
                 <form id="registration-form"
                     name="registration" 
                     method="POST" 
-                    action="/Thank-you.html"
+                    action="/thank-you.html"
                     netlify
                     netlify-honeypot="bot-field">
       
-                    <input type="hidden" name="form-name" value="registration">
-                    <input type="hidden" name="_redirect" value="/Thank-you.html">
-                    <input type="hidden" name="_subject" value="New Registration Submission">
-    
                     <p class="hidden">
                         <label>Don't fill this out if you're human: <input name="bot-field"></label>
                     </p>
@@ -150,7 +146,6 @@
             const numChildren = document.getElementById('num-children').value;
             const container = document.getElementById('child-fields-container');
             
-             
             container.innerHTML = '';
             for (let i = 1; i <= numChildren; i++) {
                 const childField = document.createElement('div');
@@ -186,14 +181,14 @@
                 form.style.display = 'none';
                 
                 setTimeout(function() {
-                    if (!window.location.href.includes('/Thank-you.html')) {
-                        fallback.innerHTML += '<p>Still waiting? <a href="/Thank-you.html">Click here to continue</a></p>';
+                    if (!window.location.href.includes('/thank-you.html')) {
+                        fallback.innerHTML += '<p>Still waiting? <a href="/thank-you.html">Click here to continue</a></p>';
                     }
                 }, 3000);
             });
 
             if (window.location.search.includes('form_submitted=true')) {
-                window.location.href = '/Thank-you.html';
+                window.location.href = "/thank-you.html";
             }
         });
     </script>
