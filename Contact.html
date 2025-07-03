@@ -39,7 +39,6 @@
                 <div id="form-fallback" class="success-message" style="display:none;">
                     <h2>✅ Form Submitted Successfully</h2>
                     <p>Your registration is being processed. You'll be redirected shortly...</p>
-                    <div class="loading-spinner"></div>
                     <p class="redirect-note">If you're not redirected automatically, <a href="Thank-you.html">click here</a></p>
                 </div>
 
@@ -50,6 +49,14 @@
                     netlify
                     netlify-honeypot="bot-field">
       
+                    <input type="hidden" name="form-name" value="registration">
+                    <input type="hidden" name="_redirect" value="Thank-you.html">
+                    <input type="hidden" name="_subject" value="New Registration Submission">
+    
+                    <p class="hidden">
+                        <label for="bot-field">Leave this field empty if you're human:</label>
+                        <input type="text" id="bot-field" name="bot-field">
+                    </p>
 
                     <fieldset>
                         <legend>Parent/Guardian Information</legend>
@@ -181,14 +188,14 @@
                 form.style.display = 'none';
                 
                 setTimeout(function() {
-                    if (!window.location.href.includes('Thank-you.html')) {
-                        fallback.innerHTML += '<p>Still waiting? <a href="Thank-you.html">Click here to continue</a></p>';
+                    if (!window.location.href.includes('/Thank-you.html')) {
+                        fallback.innerHTML += '<p>Still waiting? <a href="/Thank-you.html">Click here to continue</a></p>';
                     }
                 }, 3000);
             });
 
             if (window.location.search.includes('form_submitted=true')) {
-                window.location.href = 'Thank-you.html';
+                window.location.href = '/Thank-you.html';
             }
         });
     </script>

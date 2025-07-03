@@ -1,6 +1,6 @@
 [[redirects]]
-  from = "Thank-you.html"
-  to = "Thank-you.html"
+  from = "/Thank-you.html"
+  to = "/Thank-you.html"
   status = 200
 
 [[headers]]
@@ -10,3 +10,4 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
 
+           
