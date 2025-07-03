@@ -188,13 +188,7 @@
                 fallback.style.display = 'block';
                 form.style.display = 'none';
                 
-                setTimeout(function() {
-                    if (!window.location.href.includes('Thank-you.html')) {
-                        fallback.innerHTML += '<p>Still waiting? <a href="Thank-you.html">Click here to continue</a></p>';
-                    }
-                }, 3000);
-            });
-
+            })
             if (window.location.search.includes('form_submitted=true')) {
                 window.location.href = 'Thank-you.html';
             }
