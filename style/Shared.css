@@ -175,10 +175,7 @@ a:hover, a:focus {
 .footer-content p {
     color: white;
 }
-.footer a {
-    color: #a3bffa;
-    text-decoration: underline;
-}
+
 
 .footer a:hover,
 .footer a:focus {
