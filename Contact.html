@@ -6,12 +6,6 @@
     <title>Pathways to Belonging | Register</title>
     <link rel="stylesheet" href="style/Contact.css">
     <link rel="stylesheet" href="style/Shared.css">
-    <script>
-        if (sessionStorage.getItem('formSubmitted')) {
-            sessionStorage.removeItem('formSubmitted');
-            window.location.href = 'Thank-you.html';
-        }
-    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
@@ -22,13 +16,12 @@
         <h1>Pathways to Belonging</h1>
     </header>
 
-
     <div class="container">
         <nav class="navbar col-sm-12">
             <ul>
-               <li><a href="home.html" >🏠Home</a></li>
+               <li><a href="home.html">🏠Home</a></li>
                <li><a href="about.html">🧭About</a></li>
-               <li><a href="contact.html"class="active">📝Register</a></li>
+               <li><a href="contact.html" class="active">📝Register</a></li>
             </ul>
          </nav>
 
@@ -45,7 +38,6 @@
                 <form id="registration-form"
                     name="registration" 
                     method="POST" 
-                    action="/Thank-you.html"
                     netlify
                     netlify-honeypot="bot-field">
       
@@ -98,6 +90,7 @@
                                            aria-describedby="age-help-1">
                                     <span id="age-help-1" class="help-text">Must be between 6-17 years</span>
                                 </div>
+                            </div>
                         </div>
                     </fieldset>
 
@@ -153,7 +146,6 @@
             const numChildren = document.getElementById('num-children').value;
             const container = document.getElementById('child-fields-container');
             
-             
             container.innerHTML = '';
             for (let i = 1; i <= numChildren; i++) {
                 const childField = document.createElement('div');
@@ -185,19 +177,10 @@
             const fallback = document.getElementById('form-fallback');
             
             form.addEventListener('submit', function(e) {
-                fallback.style.display = 'block';
+                 fallback.style.display = 'block';
                 form.style.display = 'none';
                 
-                setTimeout(function() {
-                    if (!window.location.href.includes('Thank-you.html')) {
-                        fallback.innerHTML += '<p>Still waiting? <a href="Thank-you.html">Click here to continue</a></p>';
-                    }
-                }, 3000);
-            });
-
-            if (window.location.search.includes('form_submitted=true')) {
-                window.location.href = 'Thank-you.html';
-            }
+             });
         });
     </script>
 </body>
